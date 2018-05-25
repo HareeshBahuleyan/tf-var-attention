@@ -220,15 +220,25 @@ class VarSeq2SeqDetAttnModel(object):
             self.kl_loss = self.calculate_kl_loss()
             self.kl_loss = tf.scalar_mul(self.lambda_coeff, self.kl_loss)
 
+            batch_maxlen = tf.reduce_max(self.target_sentence_length)
+            
+            # the training decoder only emits outputs equal in time-steps to the
+            # max time in the current batch
+            target_sequence = tf.slice(
+                input_=self.target_data,
+                begin=[0, 0],
+                size=[self.batch_size, batch_maxlen],
+                name="target_sequence")
+
             # Create the weights for sequence_loss
-            masks = tf.sequence_mask(self.target_sentence_length, self.decoder_num_tokens, dtype=tf.float32, name='masks')
+            masks = tf.sequence_mask(self.target_sentence_length, batch_maxlen, dtype=tf.float32, name='masks')
 
             self.xent_loss = tf.contrib.seq2seq.sequence_loss(
                 self.training_logits,
-                self.target_data,
+                target_sequence,
                 weights=masks,
                 average_across_batch=False)
-
+            
             # L2-Regularization
             self.var_list = tf.trainable_variables()
             self.lossL2 = tf.add_n([tf.nn.l2_loss(v) for v in self.var_list if 'bias' not in v.name]) * 0.001

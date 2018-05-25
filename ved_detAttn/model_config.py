@@ -20,7 +20,7 @@ config = dict(
     z_temp = 1.0, # Sampling temperature to be multiplied with the standard deviation
 
     batch_size = 100, # Batch size # 128 for dialogue
-    n_epochs = 3, # Number of epochs
+    n_epochs = 10, # Number of epochs
 
     logs_dir = 'summary_logs/var-seq2seq-det-attn', # Path to save summary information for Tensorboard
     model_checkpoint_dir = 'models/var-seq2seq-det-attn-', # Path to save model checkpoints
@@ -28,6 +28,6 @@ config = dict(
     w2v_dir = '../w2v_models/', # Word2Vec model directory
     data_dir = '../data/', # Directory to store data csv files
 
-    load_checkpoint = 0, # Specify the trained model epoch/checkpoint number to be loaded for evaluation on test set, 0 means last saved checkpoint
+    load_checkpoint = 7, # Specify the trained model epoch/checkpoint number to be loaded for evaluation on test set, 0 means last saved checkpoint
 
 )
