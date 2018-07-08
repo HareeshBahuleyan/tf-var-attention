@@ -4,6 +4,7 @@
 ![](https://img.shields.io/badge/python-3.6-brightgreen.svg) ![](https://img.shields.io/badge/tensorflow-1.3.0-orange.svg)
 
 This is the official codebase for the following paper, implemented in tensorflow:
+
 Hareesh Bahuleyan*, Lili Mou*, Olga Vechtomova, and Pascal Poupart. **Variational Attention for Sequence-to-Sequence Models.** COLING 2018. https://arxiv.org/pdf/1712.08207.pdf
 
 ## Overview
