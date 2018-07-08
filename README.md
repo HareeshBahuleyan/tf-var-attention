@@ -1,6 +1,10 @@
-# Variational Attention
+
+# Variational Attention for Sequence to Sequence Models 
+
 ![](https://img.shields.io/badge/python-3.6-brightgreen.svg) ![](https://img.shields.io/badge/tensorflow-1.3.0-orange.svg)
-Implentation of 'Variational Attention for Sequence to Sequence Models' in tensorflow.
+
+This is the official codebase for the following paper, implemented in tensorflow:
+Hareesh Bahuleyan*, Lili Mou*, Olga Vechtomova, and Pascal Poupart. **Variational Attention for Sequence-to-Sequence Models.** COLING 2018. https://arxiv.org/pdf/1712.08207.pdf
 
 ## Overview
 This package consists of 3 models, each of which have been organized into separate folders:
@@ -38,3 +42,14 @@ python train.py
 ``` 
 - The model checkpoints are stored in `models/` directory, the summaries for Tensorboard are stored in `summary_logs/` directory. As training progresses, the metrics on the validation set are dumped into`log.txt`  and `bleu/` directory.
 3. Evaluate performance of the trained model. Refer to `predict.ipynb` to load desired checkpoint, calculate performance metrics (BLEU and diversity score) on the test set, and generate sample outputs. 
+
+## Citation
+If you found this code useful in your research, please cite:
+```
+@inproceedings{varAttn2018,
+  title={Variational Attention for Sequence-to-Sequence Models},
+  author={Bahuleyan, Hareesh and Mou, Lili and Vechtomova, Olga and Poupart, Pascal},
+  booktitle={Proceedings of the 27th International Conference on Computational Linguistics (COLING)},
+  year={2018}
+}
+```
