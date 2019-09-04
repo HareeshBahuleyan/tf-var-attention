@@ -27,7 +27,7 @@ The data has been preprocessed and the train-val-test split is provided in the `
 - numpy==1.12.1
 - pandas==0.22.0
 - gensim==3.1.2
-- nltk==3.2.3
+- nltk==3.4.5
 - tqdm==4.19.1
 
 ## Instructions
